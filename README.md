@@ -4,8 +4,6 @@ A ReactJs / Node.js application for the Alliance rebels so they can have access 
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
-
 ```bash
 npm install
 ```
