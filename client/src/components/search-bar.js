@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Form from 'react-bootstrap/Form';
 
 class Searchbar extends Component {
     constructor(props) {
@@ -14,11 +15,14 @@ class Searchbar extends Component {
     render() {
         return (
             <div>
-                <input
+                <Form.Control
                     type="text"
+                    name="firstName"
+                    value={this.state.searchText}
                     onChange={e => this.handleChange(e)}
-                    placeholder={this.state.placeHolder}
                 />
+
+
                 {/* <button
                     onClick={this.handleOnClick.bind(this)}>
                     Search
@@ -28,8 +32,9 @@ class Searchbar extends Component {
     }
 
     handleChange(event) {
+        console.log(event.target.value);
         this.setState({ searchText: event.target.value });
-        this.props.callback(this.state.searchText) //
+        this.props.callback(event.target.value) //
     }
 
     search() {
@@ -40,7 +45,7 @@ class Searchbar extends Component {
         this.search();
     }
 
-    
+
 }
 
 export default Searchbar;

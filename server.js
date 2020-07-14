@@ -18,6 +18,15 @@ const init = async () => {
         }
     });
 
+    server.route({
+        method: 'GET',
+        path: '/getmovies',
+        handler: (request, h) => {
+
+            return 'Movies';
+        }
+    });
+
     await server.start();
     console.log('Server running : ', server.info);
 };
@@ -29,3 +38,4 @@ process.on('unhandledRejection', (err) => {
 });
 
 init();
+

@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  text-align: left;
 }
 
 .App-logo {
@@ -35,4 +35,46 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.peoplePreview {
+  margin: 10px;
+  display: inline-block;
+  text-align: left;
+  background-color: #61dafb;
+}
+
+.planetPreview {
+  margin: 10px;
+  display: inline-block;
+  text-align: left;
+  background-color: darkorchid;
+}
+
+.filmPreview {
+  margin: 10px;
+  display: inline-block;
+  text-align: left;
+  background-color: wheat;
+}
+
+.speciesPreview{
+  margin: 10px;
+  display: inline-block;
+  text-align: left;
+  background-color: slateblue;
+}
+
+.starshipPreview{
+  margin: 10px;
+  display: inline-block;
+  text-align: left;
+  background-color: peru;
+}
+
+.vehiclePreview{
+  margin: 10px;
+  display: inline-block;
+  text-align: left;
+  background-color: seagreen;
 }

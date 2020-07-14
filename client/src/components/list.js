@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import DetailCard from './peoplePreview';
 class List extends React.Component {
     constructor(props) {
         super(props);
@@ -18,18 +18,18 @@ class List extends React.Component {
     }
     componentWillReceiveProps(nextProps) {
         this.setState({ filter: nextProps.filter })
-        console.log('new filter : "'+ nextProps.filter + '"');
+        console.log('new filter : "' + nextProps.filter + '"');
     }
     render() {
         return (
-            <ul>
+            <div>
                 {this.state.items.map(item => (
-                    item.name.includes(this.state.filter) || this.state.filter == '' ?
-                        (<li key={item.name}>
-                            {item.name} &nbsp;
-                        </li>) : ''
+                    item.name.toLowerCase().includes(this.state.filter.toLowerCase()) || this.state.filter === '' ?
+                        (
+                            <DetailCard item={item}></DetailCard>
+                        ) : ''
                 ))}
-            </ul>
+            </div>
         )
     }
 }
