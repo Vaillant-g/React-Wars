@@ -37,44 +37,34 @@
   }
 }
 
-.peoplePreview {
+.preview {
   margin: 10px;
   display: inline-block;
   text-align: left;
-  background-color: #61dafb;
 }
-
-.planetPreview {
-  margin: 10px;
-  display: inline-block;
-  text-align: left;
+.People .preview {
   background-color: darkorchid;
 }
 
-.filmPreview {
-  margin: 10px;
-  display: inline-block;
-  text-align: left;
+.Films .preview {
   background-color: wheat;
 }
 
-.speciesPreview{
-  margin: 10px;
-  display: inline-block;
-  text-align: left;
+.Planets .preview {
   background-color: slateblue;
 }
 
-.starshipPreview{
-  margin: 10px;
-  display: inline-block;
-  text-align: left;
+.Species .preview {
   background-color: peru;
 }
 
-.vehiclePreview{
-  margin: 10px;
-  display: inline-block;
-  text-align: left;
+.Starships .preview {
   background-color: seagreen;
+}
+.Vehicles .preview {
+background-color: #61dafb;
+}
+
+.previewDiv {
+  display: inline-block;
 }
