@@ -20,16 +20,21 @@ class App extends Component {
     })
 
     var data = require('../data_test.json');
+    var categories = { "People": true, "Films": true, "Planets": true, "Species": true, "Starships": true, "Vehicles": true };
+    var items = [];
+    items["People"] = data['people'];
+    items["Films"] = data['films'];
+    items["Planets"] = data['planets'];
+    items["Species"] = data['species'];
+    items["Starships"] = data['starships'];
+    items["Vehicles"] = data['vehicles'];
+    // [];
+    // categories["People"] = categories["Films"] = categories["PePlanetsople"] = categories["Species"] = categories["Starships"] = categories["Vehicles"] = true;
     //    console.log(data);
     this.state = {
-      list: data, // test pour front
-      filmsList: data['films'],
-      peopleList: data['people'],
-      planetsList: data['planets'],
-      speciesList: data['species'],
-      starshipsList: data['starships'],
-      vehiclesList: data['vehicles'],
+      items: items,
       filter: '',
+      categories: categories,
       detail: null
     };
 
@@ -48,12 +53,21 @@ class App extends Component {
   }
 
   onSearch(searchText) {
-    console.log(searchText);
+ //   console.log(searchText);
     this.setState({ filter: searchText });
   }
 
   setActive(element) {
     this.setState({ detail: element })
+  }
+
+  filterCategory(category) {
+    let oldCategories = this.state.categories;
+//    console.log(oldCategories);
+    oldCategories[category] = oldCategories[category] === true ? false : true;
+ //   console.log(oldCategories);
+    this.setState({ categories: oldCategories });
+
   }
 
   render() {
@@ -63,33 +77,22 @@ class App extends Component {
           <Row>
             <h1>React-wars</h1>
           </Row>
+          <SearchBar callback={this.onSearch.bind(this)} filtercategory={this.filterCategory.bind(this)} categories={this.state.categories}></SearchBar>
           <Row>
-            <SearchBar callback={this.onSearch.bind(this)}></SearchBar>
-          </Row>
-          <Row>
-            <Detail detail={this.state.detail}>
+            <Detail detail={this.state.detail} items={this.state.items}>
             </Detail>
           </Row>
-          <Row>
-            <ItemList items={this.state.peopleList} filter={this.state.filter} setActive={this.setActive.bind(this)} type='People'></ItemList>
-          </Row>
-          <Row>
-            <ItemList items={this.state.filmsList} filter={this.state.filter} setActive={this.setActive.bind(this)} type='Films'></ItemList>
-          </Row>
-          <Row>
-            <ItemList items={this.state.planetsList} filter={this.state.filter} setActive={this.setActive.bind(this)} type='Planets'></ItemList>
-          </Row>
-          <Row>
-            <ItemList items={this.state.speciesList} filter={this.state.filter} setActive={this.setActive.bind(this)} type='Species'></ItemList>
-          </Row>
-          <Row>
-            <ItemList items={this.state.starshipsList} filter={this.state.filter} setActive={this.setActive.bind(this)} type='Starships'></ItemList>
-          </Row>
-          <Row>
-            <ItemList items={this.state.vehiclesList} filter={this.state.filter} setActive={this.setActive.bind(this)} type='Vehicles'></ItemList>
-          </Row>
+
+          {
+            Object.entries(this.state.categories).map(([k, v]) => (
+              v === true ? (
+                < Row >
+                  <ItemList items={this.state.items[k]} filter={this.state.filter} setActive={this.setActive.bind(this)} type={k}></ItemList>
+                </Row>) : ''
+            ))}
+
         </Container>
-      </div>
+      </div >
     );
   }
 }

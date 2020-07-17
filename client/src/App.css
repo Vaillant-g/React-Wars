@@ -51,7 +51,7 @@
 }
 
 .Planets .preview {
-  background-color: slateblue;
+  background-color: slateblue !important;
 }
 
 .Species .preview {

@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
 
 class Searchbar extends Component {
     constructor(props) {
@@ -14,21 +18,28 @@ class Searchbar extends Component {
 
     render() {
         return (
-            <div>
-                <Form.Control
-                    type="text"
-                    name="firstName"
-                    value={this.state.searchText}
-                    onChange={e => this.handleChange(e)}
-                />
-
-
-                {/* <button
-                    onClick={this.handleOnClick.bind(this)}>
-                    Search
-                </button> */}
-            </div>
+            <Row >
+                <Col >
+                    <Form.Control
+                        type="text"
+                        name="firstName"
+                        value={this.state.searchText}
+                        onChange={e => this.handleChange(e)}
+                    />
+                </Col>
+                <Col>
+                    <Button variant={!this.props.categories['People'] ? 'outline-secondary' : 'secondary'} onClick={e => this.handleOnClick('People')}>People</Button>{' '}
+                    <Button variant={!this.props.categories['Films'] ? 'outline-secondary' : 'secondary'} onClick={e => this.handleOnClick('Films')}>Films</Button>{' '}
+                    <Button variant={!this.props.categories['Planets'] ? 'outline-secondary' : 'secondary'} onClick={e => this.handleOnClick('Planets')}>Planets</Button>{' '}
+                    <Button variant={!this.props.categories['Species'] ? 'outline-secondary' : 'secondary'} onClick={e => this.handleOnClick('Species')}>Species</Button>{' '}
+                    <Button variant={!this.props.categories['Starships'] ? 'outline-secondary' : 'secondary'} onClick={e => this.handleOnClick('Starships')}>Starships</Button>{' '}
+                    <Button variant={!this.props.categories['Vehicles'] ? 'outline-secondary' : 'secondary'} onClick={e => this.handleOnClick('Vehicles')}>Vehicles</Button>{' '}
+                </Col>
+            </Row>
         );
+    }
+    handleOnClick(text) {
+        this.props.filtercategory(text);
     }
 
     handleChange(event) {
@@ -36,16 +47,6 @@ class Searchbar extends Component {
         this.setState({ searchText: event.target.value });
         this.props.callback(event.target.value) //
     }
-
-    search() {
-        this.props.callback(this.state.searchText)
-    }
-
-    handleOnClick() {
-        this.search();
-    }
-
-
 }
 
 export default Searchbar;
