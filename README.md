@@ -6,6 +6,8 @@ A ReactJs / Node.js application for the Alliance rebels so they can have access 
 
 ```bash
 npm install
+
+cd client ; npm install
 ```
 ## Usage
 
