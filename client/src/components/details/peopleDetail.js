@@ -39,11 +39,11 @@ export default function PeopleDetail(props) {
             <span className="font-weight-bold">Skin color</span> : {people.skin_color} <br />
             <span className="font-weight-bold">Eye color</span> : {people.eye_color} <br />
             <span className="font-weight-bold">Birth year</span> : {people.birth_year} <br />
-            <span className="font-weight-bold">Homeworld</span> : {data['Planets'][homeworld]['name']} <br />
+            <span className="font-weight-bold">Homeworld</span> : {data['Planets'][homeworld]['name']} <br /> {/*check si la data est load */}
             <span className="font-weight-bold">Films</span> : <br />
 
             {movieList.map(numero => (
-                <span> -  {data['Films'][numero - 1]['title']} <br /></span>
+                <span key={numero - 1}> -  {data['Films'][numero - 1]['title']} <br /></span>
             ))}
             {people.species.length !== 0 ?
                 (<span><span className="font-weight-bold">Species : </span> {data['Species'][speciesNumber - 1]['name']} <br /> </span>)
@@ -51,13 +51,13 @@ export default function PeopleDetail(props) {
             {people.vehicles.length !== 0 ?
                 (<span><span className="font-weight-bold">Vehicles : <br/></span> {
                     vehicleList.map(numero => (
-                        ((data['Vehicles'][numero - 1] !== undefined) ? (<span> -  {data['Vehicles'][numero - 1]['name']} <br /></span>) : '')))
+                        ((data['Vehicles'][numero - 1] !== undefined) ? (<span key={numero}> -  {data['Vehicles'][numero - 1]['name']} <br /></span>) : '')))
                 } <br /> </span>)
                 : ''}
             {people.starships.length !== 0 ?
                 (<span><span className="font-weight-bold">Starships : <br/></span> {
                     starshipList.map(numero => (
-                        ((data['Vehicles'][numero - 1] !== undefined) ? (<span> -  {data['Vehicles'][numero - 1]['name']} <br /></span>) : '')))
+                        ((data['Vehicles'][numero - 1] !== undefined) ? (<span key={numero}> -  {data['Vehicles'][numero - 1]['name']} <br /></span>) : '')))
                 } <br /> </span>)
                 : ''}
         </Card.Text>

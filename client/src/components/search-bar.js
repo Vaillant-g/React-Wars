@@ -18,21 +18,22 @@ class Searchbar extends Component {
     render() {
         return (
             <Row>
-                <Col md="12" lg="6" >
+                <Col lg="12" xl="5" >
                     <Form.Control
                         type="text"
-                        name="firstName"
+                        name="search"
                         value={this.state.searchText}
                         onChange={e => this.handleChange(e)}
+                        className="searchBarInput"
                     />
                 </Col>
-                <Col xs md="12" lg="6"> 
-                    <Button variant={!this.props.categories['People'] ? 'outline-secondary' : 'secondary'} onClick={e => this.handleOnClick('People')}>People</Button>{' '}
-                    <Button variant={!this.props.categories['Films'] ? 'outline-secondary' : 'secondary'} onClick={e => this.handleOnClick('Films')}>Films</Button>{' '}
-                    <Button variant={!this.props.categories['Planets'] ? 'outline-secondary' : 'secondary'} onClick={e => this.handleOnClick('Planets')}>Planets</Button>{' '}
-                    <Button variant={!this.props.categories['Species'] ? 'outline-secondary' : 'secondary'} onClick={e => this.handleOnClick('Species')}>Species</Button>{' '}
-                    <Button variant={!this.props.categories['Starships'] ? 'outline-secondary' : 'secondary'} onClick={e => this.handleOnClick('Starships')}>Starships</Button>{' '}
-                    <Button variant={!this.props.categories['Vehicles'] ? 'outline-secondary' : 'secondary'} onClick={e => this.handleOnClick('Vehicles')}>Vehicles</Button>{' '}
+                <Col xs lg="12" xl="7"> 
+                    <Button className="categoryButton" variant={!this.props.categories['People'] ? 'outline-secondary' : 'secondary'} onClick={e => this.handleOnClick('People')}>People</Button>{' '}
+                    <Button className="categoryButton" variant={!this.props.categories['Films'] ? 'outline-secondary' : 'secondary'} onClick={e => this.handleOnClick('Films')}>Films</Button>{' '}
+                    <Button className="categoryButton" variant={!this.props.categories['Planets'] ? 'outline-secondary' : 'secondary'} onClick={e => this.handleOnClick('Planets')}>Planets</Button>{' '}
+                    <Button className="categoryButton" variant={!this.props.categories['Species'] ? 'outline-secondary' : 'secondary'} onClick={e => this.handleOnClick('Species')}>Species</Button>{' '}
+                    <Button className="categoryButton" variant={!this.props.categories['Starships'] ? 'outline-secondary' : 'secondary'} onClick={e => this.handleOnClick('Starships')}>Starships</Button>{' '}
+                    <Button className="categoryButton" variant={!this.props.categories['Vehicles'] ? 'outline-secondary' : 'secondary'} onClick={e => this.handleOnClick('Vehicles')}>Vehicles</Button>{' '}
                 </Col>
             </Row>
         );

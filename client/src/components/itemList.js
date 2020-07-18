@@ -20,7 +20,7 @@ export default function ItemList(props) {
                             let temp = item.name === undefined ? item.title : item.name;
                             return (
                                 temp.toLowerCase().includes(filter.toLowerCase()) || filter === '' ?
-                                    (<div onClick={() => handleClick(item)} className="previewDiv">
+                                    (<div onClick={() => handleClick(item)} className="previewDiv" key={temp }>
                                         <Preview item={item} key={temp}></Preview>
                                     </div>
                                     ) : ''

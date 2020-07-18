@@ -75,4 +75,17 @@ background-color: #61dafb;
   padding-bottom: 50px;
   background-color: #282c34;
   color: white;
+  box-shadow: 0px 10px 5px #aaaaaa;
+  margin-bottom: 40px;
+}
+
+.categoryButton {
+  margin-right: 10px;
+}
+.searchBarInput {
+  margin-bottom: 20px;
+}
+
+.inlineTitle {
+  display: inline;
 }

@@ -19,7 +19,7 @@ export default function MovieDetail(props) {
     var vehicleList = [];
     movie.vehicles.forEach(element => {
         let tmp = element.split('/');
-        planetList.push(tmp[tmp.length - 2]);
+        vehicleList.push(tmp[tmp.length - 2]);
     });
     var speciesList = [];
     movie.species.forEach(element => {
@@ -39,25 +39,25 @@ export default function MovieDetail(props) {
             {movie.characters.length !== 0 ?
                 (<span><span className="font-weight-bold">Characters : <br/></span> {
                     characterList.map(numero => (
-                        ((data['People'][numero - 1] !== undefined) ? (<span> -  {data['People'][numero - 1]['name']} <br /></span>) : '')))
+                        ((data['People'][numero - 1] !== undefined) ? (<span key={numero}> -  {data['People'][numero - 1]['name']} <br /></span>) : '')))
                 } <br /> </span>)
                 : ''}
             {movie.planets.length !== 0 ?
                 (<span><span className="font-weight-bold">Planets : <br/></span> {
                     planetList.map(numero => (
-                        ((data['Planets'][numero - 1] !== undefined) ? (<span> -  {data['Planets'][numero - 1]['name']} <br /></span>) : '')))
+                        ((data['Planets'][numero - 1] !== undefined) ? (<span key={numero}> -  {data['Planets'][numero - 1]['name']} <br /></span>) : '')))
                 } <br /> </span>)
                 : ''}
             {movie.vehicles.length !== 0 ?
                 (<span><span className="font-weight-bold">Vehicles : <br/></span> {
                     vehicleList.map(numero => (
-                        ((data['Vehicles'][numero - 1] !== undefined) ? (<span> -  {data['Vehicles'][numero - 1]['name']} <br /></span>) : '')))
+                        ((data['Vehicles'][numero - 1] !== undefined) ? (<span key={numero}> -  {data['Vehicles'][numero - 1]['name']} <br /></span>) : '')))
                 } <br /> </span>)
                 : ''}
             {movie.species.length !== 0 ?
                 (<span><span className="font-weight-bold">Species : <br/></span> {
                     speciesList.map(numero => (
-                        ((data['Species'][numero - 1] !== undefined) ? (<span> -  {data['Species'][numero - 1]['name']} <br /></span>) : '')))
+                        ((data['Species'][numero - 1] !== undefined) ? (<span key={numero}> -  {data['Species'][numero - 1]['name']} <br /></span>) : '')))
                 } <br /> </span>)
                 : ''}
         </Card.Text>
