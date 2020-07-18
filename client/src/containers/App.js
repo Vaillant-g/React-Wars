@@ -7,7 +7,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Background from '../img/library.jpg';
 import axios from 'axios';
 
 const api = axios.create({
@@ -87,12 +86,7 @@ class App extends Component {
         </div>
         <Container>
           <Row>
-          <Col md="12" lg="4">
-              <Detail detail={this.state.detail} items={this.state.items}>
-              </Detail>
-            </Col>
-
-            <Col xs lg="18">
+            <Col md="8">
               {
                 Object.entries(this.state.categories).map(([k, v]) => (
                   v === true ? (
@@ -101,7 +95,10 @@ class App extends Component {
                     </Row>) : ''
                 ))}
             </Col>
-
+            <Col xs={{ order: 'first' }} lg={{order: 'last'}}>
+              <Detail detail={this.state.detail} items={this.state.items}>
+              </Detail>
+            </Col>
           </Row>
 
 

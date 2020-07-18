@@ -7,8 +7,6 @@ import MovieDetail from './details/movieDetail';
 export default function Detail(props) {
     let item = props.detail;
     let data = props.items;
-    //    console.log(item);
-    let personarray = {}
 
     if (item) {
 
@@ -35,11 +33,11 @@ export default function Detail(props) {
                     <Card style={{ width: '18rem' }}>
                         <Card.Img variant="top" src="test" />
                         <Card.Body>
-                            <Card.Title>{(item.name === undefined) ? item.title : item.name}</Card.Title>
+                            <Card.Title>{temp}</Card.Title>
 
 
-                            {(item['skin_color'] != undefined ? <PeopleDetail item={item} data={data}></PeopleDetail> : null)}
-                            {(item['title'] != undefined ? <MovieDetail item={item} data={data}></MovieDetail> : null)}
+                            {(item['skin_color'] !== undefined ? <PeopleDetail item={item} data={data}></PeopleDetail> : null)}
+                            {(item['title'] !== undefined ? <MovieDetail item={item} data={data}></MovieDetail> : null)}
 
 
                         </Card.Body>

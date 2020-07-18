@@ -6,15 +6,16 @@ export default function Preview(props) {
 
     return (
         <div className="preview">
-            <Card style={{ width: '10rem' }} border="secondary">
+            {/* <Card style={{ width: '15rem' }} border="secondary"> */}
+            <Card style={{ width: '15rem' }} border="secondary">
             <Card.Img variant="top" src="test" />
                 <Card.Body>
                     <Card.Title>{(item.name === undefined) ? item.title : item.name}</Card.Title>
 
-                    <Card.Text>
+                    {/* <Card.Text>
                         Some quick example text to build on the card title and make up the bulk of
                         the card's content.
-                    </Card.Text>
+                    </Card.Text> */}
 
                 </Card.Body>
             </Card>
