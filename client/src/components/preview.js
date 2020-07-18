@@ -6,7 +6,7 @@ export default function Preview(props) {
 
     return (
         <div className="preview">
-            <Card style={{ width: '18rem' }} border="secondary">
+            <Card style={{ width: '10rem' }} border="secondary">
             <Card.Img variant="top" src="test" />
                 <Card.Body>
                     <Card.Title>{(item.name === undefined) ? item.title : item.name}</Card.Title>

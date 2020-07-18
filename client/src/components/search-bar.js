@@ -19,7 +19,7 @@ class Searchbar extends Component {
     render() {
         return (
             <Row>
-                <Col >
+                <Col md="12" lg="6" >
                     <Form.Control
                         type="text"
                         name="firstName"
@@ -27,7 +27,7 @@ class Searchbar extends Component {
                         onChange={e => this.handleChange(e)}
                     />
                 </Col>
-                <Col>
+                <Col xs md="12" lg="6"> 
                     <Button variant={!this.props.categories['People'] ? 'outline-secondary' : 'secondary'} onClick={e => this.handleOnClick('People')}>People</Button>{' '}
                     <Button variant={!this.props.categories['Films'] ? 'outline-secondary' : 'secondary'} onClick={e => this.handleOnClick('Films')}>Films</Button>{' '}
                     <Button variant={!this.props.categories['Planets'] ? 'outline-secondary' : 'secondary'} onClick={e => this.handleOnClick('Planets')}>Planets</Button>{' '}

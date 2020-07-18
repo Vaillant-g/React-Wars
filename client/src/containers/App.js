@@ -87,7 +87,12 @@ class App extends Component {
         </div>
         <Container>
           <Row>
-            <Col xs lg="10">
+          <Col md="12" lg="4">
+              <Detail detail={this.state.detail} items={this.state.items}>
+              </Detail>
+            </Col>
+
+            <Col xs lg="18">
               {
                 Object.entries(this.state.categories).map(([k, v]) => (
                   v === true ? (
@@ -95,10 +100,6 @@ class App extends Component {
                       <ItemList items={this.state.items[k]} filter={this.state.filter} setActive={this.setActive.bind(this)} type={k}></ItemList>
                     </Row>) : ''
                 ))}
-            </Col>
-            <Col xs lg="2">
-              <Detail detail={this.state.detail} items={this.state.items}>
-              </Detail>
             </Col>
 
           </Row>

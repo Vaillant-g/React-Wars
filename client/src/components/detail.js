@@ -30,7 +30,7 @@ export default function Detail(props) {
         let temp = item.name === undefined ? item.title : item.name;
         return (
             <Col>
-             <h2>Detail</h2>
+                <h2>Detail</h2>
                 <div className="detail">
                     <Card style={{ width: '18rem' }}>
                         <Card.Img variant="top" src="test" />
@@ -50,5 +50,12 @@ export default function Detail(props) {
         );
     }
     else
-        return null;
+        return (
+            <Col>
+                <h2>Detail</h2>
+                <Card>
+                    <h5>Select an item</h5>
+                </Card>
+            </Col>
+        );
 }
