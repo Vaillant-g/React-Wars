@@ -6,6 +6,8 @@ import Detail from '../components/detail';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Background from '../img/library.jpg';
 import axios from 'axios';
 
 const api = axios.create({
@@ -53,7 +55,7 @@ class App extends Component {
   }
 
   onSearch(searchText) {
- //   console.log(searchText);
+    //   console.log(searchText);
     this.setState({ filter: searchText });
   }
 
@@ -63,9 +65,9 @@ class App extends Component {
 
   filterCategory(category) {
     let oldCategories = this.state.categories;
-//    console.log(oldCategories);
+    //    console.log(oldCategories);
     oldCategories[category] = oldCategories[category] === true ? false : true;
- //   console.log(oldCategories);
+    //   console.log(oldCategories);
     this.setState({ categories: oldCategories });
 
   }
@@ -73,23 +75,36 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <div className="header">
+          <Container>
+            <Row>
+              <Col>
+                <h1>React-wars</h1>
+              </Col>
+            </Row>
+            <SearchBar callback={this.onSearch.bind(this)} filtercategory={this.filterCategory.bind(this)} categories={this.state.categories}></SearchBar>
+          </Container>
+        </div>
         <Container>
           <Row>
-            <h1>React-wars</h1>
-          </Row>
-          <SearchBar callback={this.onSearch.bind(this)} filtercategory={this.filterCategory.bind(this)} categories={this.state.categories}></SearchBar>
-          <Row>
-            <Detail detail={this.state.detail} items={this.state.items}>
-            </Detail>
+            <Col xs lg="10">
+              {
+                Object.entries(this.state.categories).map(([k, v]) => (
+                  v === true ? (
+                    < Row >
+                      <ItemList items={this.state.items[k]} filter={this.state.filter} setActive={this.setActive.bind(this)} type={k}></ItemList>
+                    </Row>) : ''
+                ))}
+            </Col>
+            <Col xs lg="2">
+              <Detail detail={this.state.detail} items={this.state.items}>
+              </Detail>
+            </Col>
+
           </Row>
 
-          {
-            Object.entries(this.state.categories).map(([k, v]) => (
-              v === true ? (
-                < Row >
-                  <ItemList items={this.state.items[k]} filter={this.state.filter} setActive={this.setActive.bind(this)} type={k}></ItemList>
-                </Row>) : ''
-            ))}
+
+
 
         </Container>
       </div >

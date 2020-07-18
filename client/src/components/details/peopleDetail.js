@@ -45,36 +45,21 @@ export default function PeopleDetail(props) {
             {movieList.map(numero => (
                 <span> -  {data['Films'][numero - 1]['title']} <br /></span>
             ))}
-            {people.species.length != 0 ?
+            {people.species.length !== 0 ?
                 (<span><span className="font-weight-bold">Species : </span> {data['Species'][speciesNumber - 1]['name']} <br /> </span>)
                 : ''}
-            {people.vehicles.length != 0 ?
-                (<span><span className="font-weight-bold">Vehicles : </span> {
+            {people.vehicles.length !== 0 ?
+                (<span><span className="font-weight-bold">Vehicles : <br/></span> {
                     vehicleList.map(numero => (
                         ((data['Vehicles'][numero - 1] !== undefined) ? (<span> -  {data['Vehicles'][numero - 1]['name']} <br /></span>) : '')))
-                    // <span> -  {numero- 1} <br /></span>))
                 } <br /> </span>)
                 : ''}
-            {people.starships.length != 0 ?
-                (<span><span className="font-weight-bold">Starships : </span> {
+            {people.starships.length !== 0 ?
+                (<span><span className="font-weight-bold">Starships : <br/></span> {
                     starshipList.map(numero => (
                         ((data['Vehicles'][numero - 1] !== undefined) ? (<span> -  {data['Vehicles'][numero - 1]['name']} <br /></span>) : '')))
-                    // <span> -  {numero- 1} <br /></span>))
                 } <br /> </span>)
                 : ''}
-
-
-
-
         </Card.Text>
     )
 }
-
-
-//     "starships": [
-//         "http://swapi.dev/api/starships/12/",
-//         "http://swapi.dev/api/starships/22/"
-//     ],
-//         "created": "2014-12-09T13:50:51.644000Z",
-//             "edited": "2014-12-20T21:17:56.891000Z",
-//                 "url": "http://swapi.dev/api/people/1/"

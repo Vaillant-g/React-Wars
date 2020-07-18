@@ -1,12 +1,13 @@
 import React from 'react';
-//import Container from 'react-bootstrap/esm/Container';
 import Card from 'react-bootstrap/Card'
+import Col from 'react-bootstrap/Col'
 import PeopleDetail from './details/peopleDetail';
+import MovieDetail from './details/movieDetail';
 
 export default function Detail(props) {
     let item = props.detail;
     let data = props.items;
-//    console.log(item);
+    //    console.log(item);
     let personarray = {}
 
     if (item) {
@@ -28,22 +29,24 @@ export default function Detail(props) {
 
         let temp = item.name === undefined ? item.title : item.name;
         return (
-            <div className="detail">
-                <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src="test" />
-                    <Card.Body>
-                        <Card.Title>{(item.name === undefined) ? item.title : item.name}</Card.Title>
+            <Col>
+             <h2>Detail</h2>
+                <div className="detail">
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Img variant="top" src="test" />
+                        <Card.Body>
+                            <Card.Title>{(item.name === undefined) ? item.title : item.name}</Card.Title>
 
 
-                        {
-                            (item['skin_color'] != undefined ? <PeopleDetail item={item} data={data}></PeopleDetail> : null)
-                        }
+                            {(item['skin_color'] != undefined ? <PeopleDetail item={item} data={data}></PeopleDetail> : null)}
+                            {(item['title'] != undefined ? <MovieDetail item={item} data={data}></MovieDetail> : null)}
 
 
-                    </Card.Body>
-                </Card>
+                        </Card.Body>
+                    </Card>
 
-            </div >
+                </div >
+            </Col>
         );
     }
     else

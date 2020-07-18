@@ -1,5 +1,6 @@
 import React from 'react';
 import Preview from './preview';
+import Col from 'react-bootstrap/Col'
 
 export default function ItemList(props) {
     let items = (props.items === undefined) ? null : props.items;
@@ -11,6 +12,7 @@ export default function ItemList(props) {
 
     if (items)
         return (
+            <Col>
                 <div className={props.type} >
                     <h2>{props.type}</h2>
                     <div>
@@ -26,6 +28,7 @@ export default function ItemList(props) {
                         })}
                     </div>
                 </div >
+            </Col>
         );
     else
         return null;

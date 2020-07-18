@@ -1,6 +1,7 @@
 'use strict';
 
 const Hapi = require('@hapi/hapi');
+const axios = require('axios');
 
 const init = async () => {
 
@@ -27,7 +28,14 @@ const init = async () => {
         }
     });
 
+    const getData = () => {
+        axios.get('http://swapi.dev/api/people/?page=2').then(response => {
+            console.log(response.data);
+        })
+    }
+
     await server.start();
+    getData();
     console.log('Server running : ', server.info);
 };
 

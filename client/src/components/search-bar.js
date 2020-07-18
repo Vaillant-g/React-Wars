@@ -18,7 +18,7 @@ class Searchbar extends Component {
 
     render() {
         return (
-            <Row >
+            <Row>
                 <Col >
                     <Form.Control
                         type="text"
