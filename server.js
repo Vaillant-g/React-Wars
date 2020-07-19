@@ -5,7 +5,6 @@ const axios = require("axios");
 
 const init = async () => {
   var swapidata = [];
-  var swapidata2 = [];
 
   const server = Hapi.server({
     port: 5000,
@@ -53,28 +52,6 @@ const init = async () => {
   })
 
   const getData = () => {
-    let urlArray = [
-      "https://swapi.dev/api/films/",
-      "https://swapi.dev/api/people/",
-      "https://swapi.dev/api/planets/",
-      "https://swapi.dev/api/species/",
-      "https://swapi.dev/api/starships/",
-      "https://swapi.dev/api/vehicles/",
-    ];
-    let promiseArray = urlArray.map((url) => axios.get(url));
-    axios.all(promiseArray).then(function (results) {
-
-      //      console.log(results[1]["data"]["next"]);
-      swapidata.push(results[0]["data"]["results"]);
-      swapidata.push(results[1]["data"]["results"]);
-      swapidata.push(results[2]["data"]["results"]);
-      swapidata.push(results[3]["data"]["results"]);
-      swapidata.push(results[4]["data"]["results"]);
-      swapidata.push(results[5]["data"]["results"]);
-    });
-  };
-
-  const getData2 = () => {
     let cpt = 0;
     let urlArray = [
       "https://swapi.dev/api/films/?page=1",
@@ -92,21 +69,19 @@ const init = async () => {
   }
 
   const getType = async (type, cpt) => {
-    swapidata2[cpt] = [];
+    swapidata[cpt] = [];
     var request = type;
 
-    console.log(cpt);
     while (request !== null) {
-      console.log('request = ' + request)
       await axios.get(request)
         .then(function (response) {
           request = response["data"]["next"];
           response['data']['results'].map(current =>
-            swapidata2[cpt].push(current))
+            swapidata[cpt].push(current))
 
         })
         .catch(function (error) {
-          //        console.log(error);
+          console.log(error);
         })
         .then(function () {
           // always executed
@@ -116,7 +91,6 @@ const init = async () => {
 
   await server.start();
   getData();
-  getData2();
   console.log("Server running : ", server.info);
 };
 
