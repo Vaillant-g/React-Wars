@@ -18,11 +18,11 @@ export default function ItemList(props) {
                     <h2>{props.type}</h2>
                     <div>
                         {items.map(function (item) {
-                            let temp = item.name === undefined ? item.title : item.name;
+                            let itemname = item.name === undefined ? item.title : item.name;
                             return (
-                                temp.toLowerCase().includes(filter.toLowerCase()) || filter === '' ?
-                                    (<div onClick={() => handleClick(item)} className="previewDiv" key={temp }>
-                                        <Preview type={type} item={item} key={temp}></Preview>
+                                itemname.toLowerCase().includes(filter.toLowerCase()) || filter === '' ?
+                                    (<div onClick={() => handleClick(item)} className="previewDiv" key={itemname }>
+                                        <Preview type={type} item={item} key={itemname}></Preview>
                                     </div>
                                     ) : ''
                             );

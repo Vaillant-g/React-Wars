@@ -21,7 +21,7 @@ export default function Detail(props) {
     if (item["starship_class"] !== undefined) type = "Starships";
     if (item["vehicle_class"] !== undefined) type = "Vehicles";
 
-    let temp = item.name === undefined ? item.title : item.name;
+    let itemname = item.name === undefined ? item.title : item.name;
     return (
       <Col>
         <span>
@@ -31,7 +31,7 @@ export default function Detail(props) {
         <div className="detail">
           <Card className={type} style={{ width: "18rem" }}>
             <Card.Body>
-              <Card.Title>{temp}</Card.Title>
+              <Card.Title>{itemname}</Card.Title>
               {type === "People" ? (
                 <PeopleDetail item={item} data={data}></PeopleDetail>
               ) : null}

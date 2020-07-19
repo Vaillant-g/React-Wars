@@ -14,6 +14,7 @@ const init = async () => {
     }
   });
 
+  //routes
   server.route({
     method: "GET",
     path: "/",
@@ -42,6 +43,8 @@ const init = async () => {
       reply.view('404').code(404)
     }
   })
+
+  //data 
 
   const getData = () => {
     let cpt = 0;
@@ -76,7 +79,6 @@ const init = async () => {
           console.log(error);
         })
         .then(function () {
-          // always executed
         });
     }
   };

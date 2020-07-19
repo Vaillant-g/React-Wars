@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../App.css";
-import SearchBar from "../components/search-bar";
+import SearchBar from "../containers/search-bar";
 import ItemList from "../components/itemList";
 import Detail from "../components/detail";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -16,8 +16,6 @@ const api = axios.create({
 class App extends Component {
   constructor(props) {
     super(props);
-
-    var data = require("../data_test.json");
     var categories = {
       People: true,
       Films: true,
@@ -35,9 +33,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-  
     api.get("/getData").then((res) => {
-      console.log(res.data);
       var items = [];
       items["People"] = res.data[1];
       items["Films"] = res.data[0];
@@ -51,7 +47,6 @@ class App extends Component {
   }
 
   onSearch(searchText) {
-    //   console.log(searchText);
     this.setState({ filter: searchText });
   }
 
@@ -62,9 +57,7 @@ class App extends Component {
 
   filterCategory(category) {
     let oldCategories = this.state.categories;
-    //    console.log(oldCategories);
     oldCategories[category] = oldCategories[category] === true ? false : true;
-    //   console.log(oldCategories);
     this.setState({ categories: oldCategories });
   }
 

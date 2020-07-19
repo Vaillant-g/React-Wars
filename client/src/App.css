@@ -79,7 +79,7 @@ body {
   padding-bottom: 50px;
   background-color: #282c34;
   color: white;
-  box-shadow: 0px 10px 5px #aaaaaa;
+  /* box-shadow: 0px 10px 5px #aaaaaa; */
   margin-bottom: 40px;
 }
 
@@ -110,7 +110,8 @@ body {
 }
 
 .Planets.card {
-  border-color: #1B4E2E;
+  border-color: green;
+  /* border-color: #1B4E2E; */
   cursor: pointer;
 }
 
