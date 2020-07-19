@@ -21,7 +21,8 @@ class Searchbar extends Component {
                 <Col md="12" lg="6" >
                     <Form.Control
                         type="text"
-                        name="firstName"
+                        name="searchBarInput"
+                        className="searchBarInput"
                         value={this.state.searchText}
                         onChange={e => this.handleChange(e)}
                     />

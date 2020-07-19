@@ -35,8 +35,21 @@ class App extends Component {
   }
 
   componentDidMount() {
-    api.get("/getData").then((res) => {
-//      console.log(res.data);
+    // api.get("/getData").then((res) => {
+    //   //      console.log(res.data);
+    //   var items = [];
+    //   items["People"] = res.data[1];
+    //   items["Films"] = res.data[0];
+    //   items["Planets"] = res.data[2];
+    //   items["Species"] = res.data[3];
+    //   items["Starships"] = res.data[4];
+    //   items["Vehicles"] = res.data[5];
+
+    //   this.setState({ items });
+    // });
+
+    api.get("/getData2").then((res) => {
+      console.log(res.data);
       var items = [];
       items["People"] = res.data[1];
       items["Films"] = res.data[0];
@@ -87,33 +100,33 @@ class App extends Component {
         {this.state.items === null ? (
           ""
         ) : (
-          <Container>
-            <Row>
-              <Col md="8">
-                {Object.entries(this.state.categories).map(([k, v]) =>
-                  v === true ? (
-                    <Row key={k}>
-                      <ItemList
-                        items={this.state.items[k]}
-                        filter={this.state.filter}
-                        setActive={this.setActive.bind(this)}
-                        type={k}
-                      ></ItemList>
-                    </Row>
-                  ) : (
-                    ""
-                  )
-                )}
-              </Col>
-              <Col xs={{ order: "first" }} lg={{ order: "last" }}>
-                <Detail
-                  detail={this.state.detail}
-                  items={this.state.items}
-                ></Detail>
-              </Col>
-            </Row>
-          </Container>
-        )}
+            <Container>
+              <Row>
+                <Col md="8">
+                  {Object.entries(this.state.categories).map(([k, v]) =>
+                    v === true ? (
+                      <Row key={k}>
+                        <ItemList
+                          items={this.state.items[k]}
+                          filter={this.state.filter}
+                          setActive={this.setActive.bind(this)}
+                          type={k}
+                        ></ItemList>
+                      </Row>
+                    ) : (
+                        ""
+                      )
+                  )}
+                </Col>
+                <Col xs={{ order: "first" }} lg={{ order: "last" }}>
+                  <Detail
+                    detail={this.state.detail}
+                    items={this.state.items}
+                  ></Detail>
+                </Col>
+              </Row>
+            </Container>
+          )}
       </div>
     );
   }
