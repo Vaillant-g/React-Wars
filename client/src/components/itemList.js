@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col'
 export default function ItemList(props) {
     let items = (props.items === undefined) ? null : props.items;
     let filter = (props.filter === undefined) ? null : props.filter;
+    let type = props.type;
 
     function handleClick(item) {
         props.setActive(item);
@@ -21,7 +22,7 @@ export default function ItemList(props) {
                             return (
                                 temp.toLowerCase().includes(filter.toLowerCase()) || filter === '' ?
                                     (<div onClick={() => handleClick(item)} className="previewDiv" key={temp }>
-                                        <Preview item={item} key={temp}></Preview>
+                                        <Preview type={type} item={item} key={temp}></Preview>
                                     </div>
                                     ) : ''
                             );

@@ -18,7 +18,6 @@ export default function SpeciesDetail(props) {
   species.people.forEach(element => {
       let tmp = element.split('/');
       peopleList.push(tmp[tmp.length - 2]);
-      console.log(peopleList);
   });
 
   return (
@@ -47,7 +46,6 @@ export default function SpeciesDetail(props) {
                 } <br /> </span>)
                 : ''}
 
-                people
     </Card.Text>
   );
 }

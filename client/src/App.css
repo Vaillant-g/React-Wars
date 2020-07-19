@@ -39,11 +39,12 @@
 }
 
 .preview {
-margin-right: 10px;
-margin-bottom: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
   display: inline-block;
   text-align: left;
 }
+
 .People .preview {
   background-color: darkorchid;
 }
@@ -63,8 +64,9 @@ margin-bottom: 10px;
 .Starships .preview {
   background-color: seagreen;
 }
+
 .Vehicles .preview {
-background-color: #61dafb;
+  background-color: #61dafb;
 }
 
 .previewDiv {
@@ -82,10 +84,98 @@ background-color: #61dafb;
 .categoryButton {
   margin-right: 10px;
 }
+
 .searchBarInput {
   margin-bottom: 20px;
 }
 
 .inlineTitle {
   display: inline;
+}
+
+.detail_vide {
+  padding: 40px;
+}
+
+.People.card {
+  border-color: #DDD22B;
+  cursor: pointer;
+}
+
+.Films.card {
+  border-color: #E24242;
+  cursor: pointer;
+}
+
+.Planets.card {
+  border-color: #1B4E2E;
+  cursor: pointer;
+}
+
+.Species.card {
+  border-color: #3C6EB0;
+  cursor: pointer;
+}
+
+.Starships.card {
+  border-color: #ABABAB;
+  cursor: pointer;
+}
+
+.Vehicles.card {
+  border-color: rebeccapurple;
+  cursor: pointer;
+}
+
+.btn .actif {
+  background-color: #565C68 !important;
+}
+
+.noBsButton {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.btn-secondary {
+  /* bouton désactivé*/
+  background-color: transparent !important;
+  color: rgb(80,81,84) !important;
+}
+
+.btn-outline-secondary.People {
+  color: #DDD22B !important;
+}
+
+.btn-outline-secondary.People {
+  color: #DDD22B !important;
+}
+
+.btn-outline-secondary.Films {
+  color: #E24242!important;
+}
+
+.btn-outline-secondary.Planets {
+  color: #1B4E2E!important;
+}
+
+.btn-outline-secondary.Species {
+  color: #3C6EB0!important;
+}
+
+.btn-outline-secondary.Starships {
+  color: #ABABAB!important;
+}
+
+.btn-outline-secondary.Vehicles {
+  color: rebeccapurple!important;
 }

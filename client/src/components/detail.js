@@ -5,6 +5,8 @@ import PeopleDetail from "./details/peopleDetail";
 import MovieDetail from "./details/movieDetail";
 import PlanetDetail from "./details/planetDetail";
 import SpeciesDetail from "./details/speciesDetail";
+import StarshipDetail from "./details/starshipDetail";
+import VehicleDetail from "./details/vehicleDetail";
 
 export default function Detail(props) {
   let item = props.detail;
@@ -13,35 +15,40 @@ export default function Detail(props) {
 
   if (item) {
     if (item["skin_color"] !== undefined) type = "People";
-    if (item["title"] !== undefined) type = "Movie";
-    if (item["gravity"] !== undefined) type = "Planet";
+    if (item["title"] !== undefined) type = "Films";
+    if (item["gravity"] !== undefined) type = "Planets";
     if (item["skin_colors"] !== undefined) type = "Species";
-    if (item["starship_class"] !== undefined) type = "Starship";
-    if (item["vehicle_class"] !== undefined) type = "Vehicle";
+    if (item["starship_class"] !== undefined) type = "Starships";
+    if (item["vehicle_class"] !== undefined) type = "Vehicles";
 
     let temp = item.name === undefined ? item.title : item.name;
     return (
       <Col>
         <span>
           <h2 className="inlineTitle">Detail  </h2>
-          <h4 className="inlineTitle"> { '(' + type  + ')'}</h4>
+          <h4 className="inlineTitle"> {'(' + type + ')'}</h4>
         </span>
         <div className="detail">
-          <Card style={{ width: "18rem" }}>
-            {/* <Card.Img variant="top" src="test" /> */}
+          <Card className={type} style={{ width: "18rem" }}>
             <Card.Body>
               <Card.Title>{temp}</Card.Title>
               {type === "People" ? (
                 <PeopleDetail item={item} data={data}></PeopleDetail>
               ) : null}
-              {item["title"] !== undefined ? (
+              {type === "Films" ? (
                 <MovieDetail item={item} data={data}></MovieDetail>
               ) : null}
-              {item["gravity"] !== undefined ? (
+              {type === "Planets" ? (
                 <PlanetDetail item={item} data={data}></PlanetDetail>
               ) : null}
-              {item["skin_colors"] !== undefined ? (
+              {type === "Species" ? (
                 <SpeciesDetail item={item} data={data}></SpeciesDetail>
+              ) : null}
+              {type === "Starships" ? (
+                <StarshipDetail item={item} data={data}></StarshipDetail>
+              ) : null}
+              {type === "Vehicles" ? (
+                <VehicleDetail item={item} data={data}></VehicleDetail>
               ) : null}
             </Card.Body>
           </Card>
@@ -53,7 +60,7 @@ export default function Detail(props) {
       <Col>
         <h2>Detail</h2>
         <Card>
-          <h5>Select an item</h5>
+          <h5 className="detail_vide">Select an item</h5>
         </Card>
       </Col>
     );

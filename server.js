@@ -10,16 +10,10 @@ const init = async () => {
   const server = Hapi.server({
     port: 5000,
     host: "localhost",
+    routes: {
+      cors: true
+  }
   });
-
-  server.route({
-    method: "GET",
-    path: "/",
-    handler: (request, h) => {
-      return "Hello World!";
-    },
-  });
-
   server.route({
     method: "GET",
     path: "/getData",
@@ -27,6 +21,22 @@ const init = async () => {
       return swapidata;
     },
   });
+
+  server.route({  
+    method: [ 'GET', 'POST' ],
+    path: '/{any*}',
+    handler: (request, reply) => {
+      const accept = request.raw.req.headers.accept
+  
+      // take priority: check header if there’s a JSON REST request
+      console.log("404 wouhoou")
+      if (accept && accept.match(/json/)) {
+        return reply(Boom.notFound('Fuckity fuck, this resource isn’t available.'))
+      }
+  
+      reply.view('404').code(404)
+    }
+  })
 
   const getData2 = () => {
     let urlArray = [
