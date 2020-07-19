@@ -17,6 +17,8 @@ export default function SpeciesDetail(props) {
   var peopleList = [];
   species.people.forEach(element => {
       let tmp = element.split('/');
+      console.log(tmp[tmp.length - 2]);
+      console.log(data['People']);
       peopleList.push(tmp[tmp.length - 2]);
   });
 

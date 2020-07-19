@@ -33,8 +33,8 @@ export default function MovieDetail(props) {
         <Card.Text>
             <span className="font-weight-bold">Title</span> : {movie.title} <br />
             <span className="font-weight-bold">Episode number</span> : {movie.episode_id} <br />
-            <span className="font-weight-bold">Director</span> : {movie.director} cm <br />
-            <span className="font-weight-bold">Producer</span> : {movie.producer} kg<br />
+            <span className="font-weight-bold">Director</span> : {movie.director} <br />
+            <span className="font-weight-bold">Producer</span> : {movie.producer}<br />
             <span className="font-weight-bold">Release date</span> : {movie.release_date} <br />
             {movie.characters.length !== 0 ?
                 (<span><span className="font-weight-bold">Characters : <br/></span> {

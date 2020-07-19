@@ -27,7 +27,9 @@ export default function PeopleDetail(props) {
         starshipList.push(tmp[tmp.length - 2]);
     });
 
-
+    console.log(vehicleList);
+    console.log(data['Vehicles']);
+    console.log(data['Vehicles'][30]);
 
     return (
         <Card.Text>
@@ -49,13 +51,13 @@ export default function PeopleDetail(props) {
                 (<span><span className="font-weight-bold">Species : </span> {data['Species'][speciesNumber - 1]['name']} <br /> </span>)
                 : ''}
             {people.vehicles.length !== 0 ?
-                (<span><span className="font-weight-bold">Vehicles : <br/></span> {
+                (<span><span className="font-weight-bold">Vehicles : <br /></span> {
                     vehicleList.map(numero => (
                         ((data['Vehicles'][numero - 1] !== undefined) ? (<span key={numero}> -  {data['Vehicles'][numero - 1]['name']} <br /></span>) : '')))
                 } <br /> </span>)
                 : ''}
             {people.starships.length !== 0 ?
-                (<span><span className="font-weight-bold">Starships : <br/></span> {
+                (<span><span className="font-weight-bold">Starships : <br /></span> {
                     starshipList.map(numero => (
                         ((data['Vehicles'][numero - 1] !== undefined) ? (<span key={numero}> -  {data['Vehicles'][numero - 1]['name']} <br /></span>) : '')))
                 } <br /> </span>)

@@ -22,7 +22,6 @@ export default function VehicleDetail(props) {
   return (
     <Card.Text>
       <span className="font-weight-bold">Name</span> : {vehicle.name} <br />
-      <span className="font-weight-bold">Name</span> : {vehicle.name} <br />
       <span className="font-weight-bold">Model</span> : {vehicle.model} <br />
       <span className="font-weight-bold">Manufacturer</span> : {vehicle.manufacturer} <br />
       <span className="font-weight-bold">Cost in credits</span> : {vehicle.cost_in_credits} <br />
