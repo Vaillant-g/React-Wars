@@ -31,14 +31,6 @@ const init = async () => {
   });
 
   server.route({
-    method: "GET",
-    path: "/getData2",
-    handler: (request, h) => {
-      return swapidata2;
-    },
-  });
-
-  server.route({
     method: ['GET', 'POST'],
     path: '/{any*}',
     handler: (request, reply) => {

@@ -35,20 +35,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // api.get("/getData").then((res) => {
-    //   //      console.log(res.data);
-    //   var items = [];
-    //   items["People"] = res.data[1];
-    //   items["Films"] = res.data[0];
-    //   items["Planets"] = res.data[2];
-    //   items["Species"] = res.data[3];
-    //   items["Starships"] = res.data[4];
-    //   items["Vehicles"] = res.data[5];
-
-    //   this.setState({ items });
-    // });
-
-    api.get("/getData2").then((res) => {
+  
+    api.get("/getData").then((res) => {
       console.log(res.data);
       var items = [];
       items["People"] = res.data[1];
